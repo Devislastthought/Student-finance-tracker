@@ -93,6 +93,9 @@ Labels for icon-only buttons.
 
 High color contrast for readability.
 
+ai was used to generate suggestions for simple and easy to remember names used in the project.
+https://chatgpt.com/share/6a329fd2-7520-83ea-933f-7a9ea3d2143c
+
 Support for reduced motion preferences.
  The test suite checks input validation functions, regular expression compilation, search highlighting, import validation, and handling of invalid input.
 
