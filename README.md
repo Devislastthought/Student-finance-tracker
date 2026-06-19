@@ -116,3 +116,7 @@ All expense records and settings are stored locally in the browser using localSt
 Project Goal
 
 Student Finance Tracker was created to provide students with a practical and accessible way to manage expenses, develop better spending habits and stay within their budget using a simple and responsive interface.
+
+
+Youtube Link 
+https://youtu.be/1pGZOx_D27c
