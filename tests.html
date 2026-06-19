@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tests — Finance Tracker</title>
+  <style>
+    body { font-family: monospace; background: #1a1a2e; color: #e0e0e0; padding: 2rem; }
+    h1   { color: #2ecc71; margin-bottom: 1rem; }
+    .pass { color: #2ecc71; }
+    .fail { color: #e74c3c; }
+    .suite { margin-bottom: 1.5rem; }
+    h2 { color: #9ab0c8; margin-bottom: 0.5rem; font-size: 1rem; }
+    p  { margin: 0.2rem 0; font-size: 0.9rem; }
+    #summary { margin-top: 1.5rem; font-size: 1.1rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+<h1>Regex & Validator Tests</h1>
+<div id="output"></div>
+<div id="summary"></div>
+
+<script type="module">
+import 6{ validateDescription, validateAmount, validateDate, validateNewCategory, validateImport } from './scripts/validators.js';
+import { compileRegex, highlight } from './scripts/search.js';
+
+let passed = 0, failed = 0;
+const out = document.getElementById('output');
+
+function suite(name, tests) {
+  const div = document.createElement('div');
+  div.className = 'suite';
+  div.innerHTML = `<h2>${name}</h2>`;
+  tests.forEach(({ label, got, want }) => {
+    const ok = got === want;
+    if (ok) passed++; else failed++;
+    const p = document.createElement('p');
+    p.className = ok ? 'pass' : 'fail';
+    p.textContent = `${ok ? '✓' : '✗'} ${label} | got: "${got}" | want: "${want}"`;
+    div.appendChild(p);
+  });
+  out.appendChild(div);
+}
+
+// ── Description validation ────────────────────────────
+suite('validateDescription', [
+  { label: 'valid description',               got: validateDescription('Lunch at cafeteria'), want: '' },
+  { label: 'empty string',                    got: validateDescription(''),                   want: 'Description is required.' },
+  { label: 'leading space',                   got: validateDescription(' Coffee'),            want: 'No leading/trailing spaces or double spaces allowed.' },
+  { label: 'trailing space',                  got: validateDescription('Coffee '),            want: 'No leading/trailing spaces or double spaces allowed.' },
+  { label: 'duplicate words (back-ref)',       got: validateDescription('buy buy books'),     want: 'Duplicate word detected (e.g. "the the").' },
+  { label: 'single word valid',               got: validateDescription('Coffee'),             want: '' },
+]);
+
+// ── Amount validation ─────────────────────────────────
+suite('validateAmount', [
+  { label: 'valid integer',                   got: validateAmount('12'),     want: '' },
+  { label: 'valid decimal',                   got: validateAmount('12.50'),  want: '' },
+  { label: 'valid single decimal',            got: validateAmount('9.5'),    want: '' },
+  { label: 'zero rejected',                   got: validateAmount('0'),      want: 'Amount must be greater than 0.' },
+  { label: 'too many decimal places',         got: validateAmount('1.999'),  want: 'Enter a valid amount (e.g. 12 or 12.50).' },
+  { label: 'letters rejected',               got: validateAmount('abc'),    want: 'Enter a valid amount (e.g. 12 or 12.50).' },
+  { label: 'empty rejected',                 got: validateAmount(''),       want: 'Amount is required.' },
+]);
+
+// ── Date validation ───────────────────────────────────
+suite('validateDate', [
+  { label: 'valid date',                      got: validateDate('2025-09-25'), want: '' },
+  { label: 'bad month',                       got: validateDate('2025-13-01'), want: 'Use YYYY-MM-DD format.' },
+  { label: 'bad day',                         got: validateDate('2025-01-32'), want: 'Use YYYY-MM-DD format.' },
+  { label: 'wrong format',                    got: validateDate('25/09/2025'), want: 'Use YYYY-MM-DD format.' },
+  { label: 'empty rejected',                  got: validateDate(''),           want: 'Date is required.' },
+]);
+
+// ── Category validation ───────────────────────────────
+suite('validateNewCategory', [
+  { label: 'valid single word',               got: validateNewCategory('Gym'),         want: '' },
+  { label: 'valid with hyphen',               got: validateNewCategory('Self-Care'),   want: '' },
+  { label: 'valid with space',                got: validateNewCategory('Study Aid'),   want: '' },
+  { label: 'numbers rejected',                got: validateNewCategory('Cat1'),        want: 'Letters, spaces, and hyphens only.' },
+  { label: 'empty rejected',                  got: validateNewCategory(''),            want: 'Category name is required.' },
+]);
+
+// ── compileRegex ──────────────────────────────────────
+suite('compileRegex', [
+  { label: 'valid pattern returns RegExp',    got: (compileRegex('coffee') instanceof RegExp).toString(), want: 'true' },
+  { label: 'empty returns null',              got: String(compileRegex('')),     want: 'null' },
+  { label: 'invalid pattern returns null',    got: String(compileRegex('[')),    want: 'null' },
+  { label: 'case-insensitive by default',     got: compileRegex('coffee').flags, want: 'i' },
+  { label: 'case-sensitive when asked',       got: compileRegex('coffee', true).flags, want: '' },
+]);
+
+// ── highlight ─────────────────────────────────────────
+suite('highlight', [
+  { label: 'wraps match in mark tag',         got: highlight('Coffee run', /coffee/i), want: '<mark>Coffee</mark> run' },
+  { label: 'no match returns plain text',     got: highlight('Hello', /xyz/),          want: 'Hello' },
+  { label: 'escapes HTML in plain text',      got: highlight('<b>hi</b>', /xyz/),      want: '&lt;b&gt;hi&lt;/b&gt;' },
+]);
+
+// ── validateImport ────────────────────────────────────
+suite('validateImport', [
+  { label: 'valid array passes',
+    got: validateImport([{ id:'r1', description:'x', amount:1, category:'Food', date:'2025-01-01' }]),
+    want: '' },
+  { label: 'non-array rejected',              got: validateImport({}),               want: 'File must contain a JSON array.' },
+  { label: 'missing id rejected',
+    got: validateImport([{ description:'x', amount:1, category:'Food', date:'2025-01-01' }]).startsWith('Record missing'),
+    want: 'true' },
+]);
+
+// ── Summary ───────────────────────────────────────────
+document.getElementById('summary').innerHTML =
+  `<span class="${failed === 0 ? 'pass' : 'fail'}">Results: ${passed} passed, ${failed} failed.</span>`;
+</script>
+</body>
+</html>
