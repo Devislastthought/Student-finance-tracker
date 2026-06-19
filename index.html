@@ -1,267 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FinanceTrack</title>
-    <link rel="stylesheet" href="styles/main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinanceTrack</title>
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<div class="page-wrapper">
-
-    <!-- HEADER  -->
+  <div class="page-wrapper">
 
     <header class="site-header">
-        <div class="header-inner">
-            <div class="logo">
-                <span class="logo-text">FinanceTrack</span>
-                <span class="logo-sub">Student Finance Tracker &mdash; COMP101</span>
-            </div>
+      <div class="header-inner">
+        <div class="logo">
+          <span class="logo-text">FinanceTrack</span>
+          <span class="logo-sub">Student Finance Tracker &mdash; COMP101</span>
         </div>
+      </div>
     </header>
 
 
     <div class="body-row">
 
-        <!-- link location -->
-        <aside class="sidebar">
-            <nav aria-label="Main navigation">
-                <ul class="nav-list" role="list">
-                    <li><a href="#about"     class="nav-link" data-section="about">About</a></li>
-                    <li><a href="#dashboard" class="nav-link" data-section="dashboard">Dashboard</a></li>
-                    <li><a href="#records"   class="nav-link" data-section="records">Records</a></li>
-                    <li><a href="#add"       class="nav-link" data-section="add">Add</a></li>
-                    <li><a href="#settings"  class="nav-link" data-section="settings">Settings</a></li>
-                </ul>
-            </nav>
-            <p class="sidebar-label">Welcome to FT</p>
-        </aside>
+      <aside class="sidebar">
+        <nav aria-label="Main navigation">
+          <ul class="nav-list" role="list">
+            <li><a href="#about"     class="nav-link" data-section="about">About</a></li>
+            <li><a href="#dashboard" class="nav-link" data-section="dashboard">Dashboard</a></li>
+            <li><a href="#records"   class="nav-link" data-section="records">Records</a></li>
+            <li><a href="#add"       class="nav-link" data-section="add">Add</a></li>
+            <li><a href="#settings"  class="nav-link" data-section="settings">Settings</a></li>
+          </ul>
+        </nav>
+        <p class="sidebar-label">Welcome to FT</p>
+      </aside>
 
-        <!-- CONTENT -->
+      <main id="main-content" class="content-area">
 
-        <main id="main-content" class="content-area">
+        <div id="status-msg" role="status"  aria-live="polite"   aria-atomic="true" class="sr-only"></div>
+        <div id="alert-msg"  role="alert"   aria-live="assertive" aria-atomic="true" class="sr-only"></div>
 
-            <div id="status-msg" role="status"  aria-live="polite"   aria-atomic="true" class="sr-only"></div>
-            <div id="alert-msg"  role="alert"   aria-live="assertive" aria-atomic="true" class="sr-only"></div>
+        <section id="about" class="page-section active" aria-labelledby="about-heading">
+          <h1 id="about-heading">About FinanceTrack</h1>
+          <p class="about-desc">
+            A simple Special incredible tool to help students track spending, set budgets and understand
+            where their money goes. No sign up needed  all data stays on your device. <b>Easy & best for students.</b>
+          </p>
+          <div class="about-cards">
+            <div class="about-card">
+              <h2>Track Spending</h2>
+              <p>Log every expense with category and date.</p>
+            </div>
+            <div class="about-card">
+              <h2>Search &amp; Filter</h2>
+              <p>You can use regex powered search to find any transaction.</p>
+            </div>
+            <div class="about-card">
+              <h2>Your Data</h2>
+              <p>Saved locally in your browser. Export anytime. <b>No backend staff.</b></p>
+            </div>
+          </div>
+          <div class="about-contact">
+            <h2>Contact</h2>
+            <p>GitHub: <a href="https://github.com/Devislastthought/Student-finance-tracker" target="_blank" rel="noopener">Click here to open Github</a></p>
+            <p>Email: <a href="mailto:d.muhozin@alustudent.com">d.muhozin@alustudent.com</a></p>
+          </div>
+        </section>
+        <section id="dashboard" class="page-section" aria-labelledby="dashboard-heading">
+          <h1 id="dashboard-heading">Dashboard</h1>
 
-            <!-- ABOUT -->
-            <section id="about" class="page-section active" aria-labelledby="about-heading">
-                <h1 id="about-heading">About FinanceTrack</h1>
-                <p class="about-desc">
-                    A simple Special incredible tool to help students track spending, set budgets and understand
-                    where their money goes. No sign up needed  all data stays on your device. <b>Easy & best for students.</b>
-                </p>
-                <div class="about-cards">
-                    <div class="about-card">
-                        <h2>Track Spending</h2>
-                        <p>Log every expense with category and date.</p>
-                    </div>
-                    <div class="about-card">
-                        <h2>Search &amp; Filter</h2>
-                        <p>You can use regex powered search to find any transaction.</p>
-                    </div>
-                    <div class="about-card">
-                        <h2>Your Data</h2>
-                        <p>Saved locally in your browser. Export anytime. <b>No backend staff.</b></p>
-                    </div>
-                </div>
-                <div class="about-contact">
-                    <h2>Contact</h2>
-                    <p>GitHub: <a href="https://github.com/Devislastthought/Student-finance-tracker" target="_blank" rel="noopener">Github Link</a></p>
-                    <p>Email: <a href="mailto:d.muhozin@alustudent.com">d.muhozin@alustudent.com</a></p>
-                </div>
-            </section>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Total Records</span>
+              <span class="stat-value" id="stat-count">0</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Total Spent</span>
+              <span class="stat-value" id="stat-total">$0.00</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Top Category</span>
+              <span class="stat-value" id="stat-top-cat">&mdash;</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">This Week</span>
+              <span class="stat-value" id="stat-week">$0.00</span>
+            </div>
+          </div>
 
-            <!-- DASHBOARD -->
-            <section id="dashboard" class="page-section" aria-labelledby="dashboard-heading">
-                <h1 id="dashboard-heading">Dashboard</h1>
+          <div class="budget-section">
+            <h2>Monthly Budget</h2>
+            <div class="budget-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Budget used">
+              <div class="budget-bar" id="budget-bar"></div>
+            </div>
+            <p id="budget-caption" class="budget-caption">Set a budget in Settings.</p>
+          </div>
 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-label">Total Records</span>
-                        <span class="stat-value" id="stat-count">0</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">Total Spent</span>
-                        <span class="stat-value" id="stat-total">$0.00</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">Top Category</span>
-                        <span class="stat-value" id="stat-top-cat">&mdash;</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-label">This Week</span>
-                        <span class="stat-value" id="stat-week">$0.00</span>
-                    </div>
-                </div>
+          <div class="chart-section">
+            <h2>Last 7 Days</h2>
+            <div class="bar-chart" id="bar-chart" aria-label="Spending over the last 7 days"></div>
+          </div>
+        </section>
 
-                <div class="budget-section">
-                    <h2>Monthly Budget</h2>
-                    <div class="budget-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Budget used">
-                        <div class="budget-bar" id="budget-bar"></div>
-                    </div>
-                    <p id="budget-caption" class="budget-caption">Set a budget in Settings.</p>
-                </div>
+        <section id="records" class="page-section" aria-labelledby="records-heading">
+          <h1 id="records-heading">Records</h1>
 
-                <div class="chart-section">
-                    <h2>Last 7 Days</h2>
-                    <div class="bar-chart" id="bar-chart" aria-label="Spending over the last 7 days"></div>
-                </div>
-            </section>
+          <div class="search-bar">
+            <label for="search-input">Search (regex supported)</label>
+            <div class="search-row">
+              <input type="text" id="search-input"
+                     placeholder='e.g. coffee or Regex pattern'
+                     autocomplete="off" />
+              <label class="toggle-label">
+                <input type="checkbox" id="search-case" />
+                Case sensitive
+              </label>
+            </div>
+            <p id="search-error" class="field-error" aria-live="polite"></p>
+          </div>
 
-            <!-- RECORDS -->
-            <section id="records" class="page-section" aria-labelledby="records-heading">
-                <h1 id="records-heading">Records</h1>
+          <div class="sort-bar" role="group" aria-label="Sort records">
+            <button class="sort-btn active" data-sort="date">Date &#8597;</button>
+            <button class="sort-btn" data-sort="description">Name &#8597;</button>
+            <button class="sort-btn" data-sort="amount">Amount &#8597;</button>
+          </div>
 
-                <div class="search-bar">
-                    <label for="search-input">Search (regex supported)</label>
-                    <div class="search-row">
-                        <input type="text" id="search-input"
-                               placeholder='e.g. coffee or Regex pattern'
-                               autocomplete="off" />
-                        <label class="toggle-label">
-                            <input type="checkbox" id="search-case" />
-                            Case sensitive
-                        </label>
-                    </div>
-                    <p id="search-error" class="field-error" aria-live="polite"></p>
-                </div>
+          <div class="table-wrap">
+            <table id="records-table" aria-label="Expense records">
+              <thead>
+                <tr>
+                  <th scope="col">Description</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="records-body"></tbody>
+            </table>
+            <p id="empty-msg" class="empty-msg">No records yet. Add one!</p>
+          </div>
 
-                <div class="sort-bar" role="group" aria-label="Sort records">
-                    <button class="sort-btn active" data-sort="date">Date &#8597;</button>
-                    <button class="sort-btn" data-sort="description">Name &#8597;</button>
-                    <button class="sort-btn" data-sort="amount">Amount &#8597;</button>
-                </div>
+          <div class="io-bar">
+            <button id="export-btn" class="btn btn-outline">Export JSON</button>
+            <label class="btn btn-outline" for="import-file">
+              Import JSON
+              <input type="file" id="import-file" accept=".json" class="sr-only" />
+            </label>
+          </div>
+        </section>
+        <section id="add" class="page-section" aria-labelledby="form-heading">
+          <h1 id="form-heading">Add Expense</h1>
 
-                <div class="table-wrap">
-                    <table id="records-table" aria-label="Expense records">
-                        <thead>
-                        <tr>
-                            <th scope="col">Description</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody id="records-body"></tbody>
-                    </table>
-                    <p id="empty-msg" class="empty-msg">No records yet. Add one!</p>
-                </div>
+          <form id="expense-form" novalidate>
+            <input type="hidden" id="edit-id" />
 
-                <div class="io-bar">
-                    <button id="export-btn" class="btn btn-outline">Export JSON</button>
-                    <label class="btn btn-outline" for="import-file">
-                        Import JSON
-                        <input type="file" id="import-file" accept=".json" class="sr-only" />
-                    </label>
-                </div>
-            </section>
+            <div class="form-group">
+              <label for="f-description">Description <span aria-hidden="true">*</span></label>
+              <input type="text" id="f-description" placeholder="Describe your expense name" required autocomplete="off"
+                     aria-describedby="f-description-err" />
+              <p class="field-error" id="f-description-err" aria-live="polite"></p>
+            </div>
 
-            <!-- ADD / EDIT -->
-            <section id="add" class="page-section" aria-labelledby="form-heading">
-                <h1 id="form-heading">Add Expense</h1>
+            <div class="form-group">
+              <label for="f-amount">Amount ($) <span aria-hidden="true">*</span></label>
+              <input type="text" id="f-amount" required autocomplete="off"
+                     aria-describedby="f-amount-err" placeholder="e.g. 12.50" />
+              <p class="field-error" id="f-amount-err" aria-live="polite"></p>
+            </div>
 
-                <form id="expense-form" novalidate>
-                    <input type="hidden" id="edit-id" />
+            <div class="form-group">
+              <label for="f-category">Category <span aria-hidden="true">*</span></label>
+              <select id="f-category" required aria-describedby="f-category-err">
+                <option value="">-- Select --</option>
+              </select>
+              <p class="field-error" id="f-category-err" aria-live="polite"></p>
+            </div>
 
-                    <div class="form-group">
-                        <label for="f-description">Description <span aria-hidden="true">*</span></label>
-                        <input type="text" id="f-description" required autocomplete="off"
-                               aria-describedby="f-description-err" />
-                        <p class="field-error" id="f-description-err" aria-live="polite"></p>
-                    </div>
+            <div class="form-group">
+              <label for="f-date">Date <span aria-hidden="true">*</span></label>
+              <input type="date" id="f-date" required aria-describedby="f-date-err" />
+              <p class="field-error" id="f-date-err" aria-live="polite"></p>
+            </div>
 
-                    <div class="form-group">
-                        <label for="f-amount">Amount ($) <span aria-hidden="true">*</span></label>
-                        <input type="text" id="f-amount" required autocomplete="off"
-                               aria-describedby="f-amount-err" placeholder="e.g. 12.50" />
-                        <p class="field-error" id="f-amount-err" aria-live="polite"></p>
-                    </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="submit-btn">Add Expense</button>
+              <button type="button" class="btn btn-outline" id="cancel-btn">Cancel</button>
+            </div>
+          </form>
+        </section>
 
-                    <div class="form-group">
-                        <label for="f-category">Category <span aria-hidden="true">*</span></label>
-                        <select id="f-category" required aria-describedby="f-category-err">
-                            <option value="">-- Select --</option>
-                        </select>
-                        <p class="field-error" id="f-category-err" aria-live="polite"></p>
-                    </div>
+        <section id="settings" class="page-section" aria-labelledby="settings-heading">
+          <h1 id="settings-heading">Settings</h1>
 
-                    <div class="form-group">
-                        <label for="f-date">Date <span aria-hidden="true">*</span></label>
-                        <input type="date" id="f-date" required aria-describedby="f-date-err" />
-                        <p class="field-error" id="f-date-err" aria-live="polite"></p>
-                    </div>
+          <div class="settings-group">
+            <h2>Monthly Budget Cap</h2>
+            <div class="form-group">
+              <label for="s-budget">Budget ($)</label>
+              <input type="number" id="s-budget" min="0" step="0.01" placeholder="e.g. 500" />
+            </div>
+            <button class="btn btn-primary" id="save-budget-btn">Save Budget</button>
+          </div>
 
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary" id="submit-btn">Add Expense</button>
-                        <button type="button" class="btn btn-outline" id="cancel-btn">Cancel</button>
-                    </div>
-                </form>
-            </section>
+          <div class="settings-group">
+            <h2>Currency Rates (manual)</h2>
+            <p class="settings-note">Set how many units equal 1 USD.</p>
+            <div class="form-group">
+              <label for="s-eur">EUR rate</label>
+              <input type="number" id="s-eur" step="0.0001" placeholder="e.g. 0.92" />
+            </div>
+            <div class="form-group">
+              <label for="s-gbp">GBP rate</label>
+              <input type="number" id="s-gbp" step="0.0001" placeholder="e.g. 0.79" />
+            </div>
+            <button class="btn btn-primary" id="save-rates-btn">Save Rates</button>
+            <div class="converter-box" id="converter-box">
+              <p>$<span id="conv-usd">0</span> USD
+                 = <span id="conv-eur">0</span> EUR
+                 = <span id="conv-gbp">0</span> GBP</p>
+            </div>
+          </div>
 
-            <!-- SETTINGS -->
-            <section id="settings" class="page-section" aria-labelledby="settings-heading">
-                <h1 id="settings-heading">Settings</h1>
+          <div class="settings-group">
+            <h2>Categories</h2>
+            <ul id="cat-list" class="cat-list"></ul>
+            <div class="form-group cat-add-row">
+              <label for="s-new-cat">New category</label>
+              <input type="text" id="s-new-cat" placeholder="e.g. Gym" />
+              <button class="btn btn-outline" id="add-cat-btn">Add</button>
+            </div>
+            <p class="field-error" id="cat-err" aria-live="polite"></p>
+          </div>
 
-                <div class="settings-group">
-                    <h2>Monthly Budget Cap</h2>
-                    <div class="form-group">
-                        <label for="s-budget">Budget ($)</label>
-                        <input type="number" id="s-budget" min="0" step="0.01" placeholder="e.g. 500" />
-                    </div>
-                    <button class="btn btn-primary" id="save-budget-btn">Save Budget</button>
-                </div>
+          <div class="settings-group danger-zone">
+            <h2>Danger Zone</h2>
+            <button class="btn btn-danger" id="clear-btn">Clear All Data</button>
+          </div>
+        </section>
 
-                <div class="settings-group">
-                    <h2>Currency Rates (manual)</h2>
-                    <p class="settings-note">Set how many units equal 1 USD.</p>
-                    <div class="form-group">
-                        <label for="s-eur">EUR rate</label>
-                        <input type="number" id="s-eur" step="0.0001" placeholder="e.g. 0.92" />
-                    </div>
-                    <div class="form-group">
-                        <label for="s-gbp">GBP rate</label>
-                        <input type="number" id="s-gbp" step="0.0001" placeholder="e.g. 0.79" />
-                    </div>
-                    <button class="btn btn-primary" id="save-rates-btn">Save Rates</button>
-                    <div class="converter-box" id="converter-box">
-                        <p>$<span id="conv-usd">0</span> USD
-                            = <span id="conv-eur">0</span> EUR
-                            = <span id="conv-gbp">0</span> GBP</p>
-                    </div>
-                </div>
-
-                <div class="settings-group">
-                    <h2>Categories</h2>
-                    <ul id="cat-list" class="cat-list"></ul>
-                    <div class="form-group cat-add-row">
-                        <label for="s-new-cat">New category</label>
-                        <input type="text" id="s-new-cat" placeholder="e.g. Gym" />
-                        <button class="btn btn-outline" id="add-cat-btn">Add</button>
-                    </div>
-                    <p class="field-error" id="cat-err" aria-live="polite"></p>
-                </div>
-
-                <div class="settings-group danger-zone">
-                    <h2>Danger Zone</h2>
-                    <button class="btn btn-danger" id="clear-btn">Clear All Data</button>
-                </div>
-            </section>
-
-        </main>
+      </main>
     </div>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
-        <p>FinanceTrack &copy; 2025 &middot; Created By Muhozi Devis&ac;</p>
+      <p>FinanceTrack &copy; 2025 &middot; Created By Muhozi Devis</p>
     </footer>
 
-</div>
+  </div>
 
-<script type="module" src="scripts/main.js"></script>
+  <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
